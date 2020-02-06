@@ -23,6 +23,18 @@ export default class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
+    this.setState({
+      contacts,
+    });
+  }
+
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }
+
   setContacts = (name, number) => {
     const { contacts } = this.state;
     let test = '';

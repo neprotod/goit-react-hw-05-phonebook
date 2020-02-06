@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://neprotod.github.io/goit-react-hw-02-phonebook",
+  "homepage": "https://neprotod.github.io/goit-react-hw-03-phonebook",
   "eslintConfig": {
     "extends": "react-app"
   },
