@@ -15,7 +15,7 @@ const Filter = ({ filter, onFilter }) => {
           type="text"
           value={filter}
           onChange={onFilter}
-          placeHolder="Find people"
+          placeholder="Find people"
         />
       </div>
     </div>

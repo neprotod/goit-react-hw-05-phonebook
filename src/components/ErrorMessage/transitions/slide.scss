@@ -1,0 +1,27 @@
+
+.error-enter{
+  opacity: 0;
+  transform: translateX(-100%);
+  display:block;
+}
+.error-enter-done{
+  display:block;
+}
+.error-enter-active{
+  display:block;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.error-exit{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.error-exit-active{
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+

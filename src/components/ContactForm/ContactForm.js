@@ -3,14 +3,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Joi from '@hapi/joi';
 
+import ErrorMessage from '../ErrorMessage';
+
 import './ContactForm.scss';
 
 const schema = Joi.object({
   name: Joi.string()
-    .alphanum()
     .min(3)
     .max(30)
-    .required(),
+    .pattern(/^[a-zA-Zа-яА-Я ]*$/, 'name')
+    .required()
+    .messages({
+      'string.base': `"Name" should be a type of 'text'`,
+      'string.empty': `"Name" cannot be an empty field`,
+      'string.min': `"Name" should have a minimum length of {#limit}`,
+      'string.max': `"Name" should have a maximum length of {#limit}`,
+      'string.pattern.name': `"Name" we can use only alphanum`,
+      'any.required': `"Name" is a required field`,
+    }),
+
   number: Joi.string()
     .pattern(/^([0-9]+?[ -]?)+?[0-9]$/)
     .message(
@@ -27,12 +38,14 @@ export default class ContactForm extends Component {
   state = {
     name: '',
     number: '',
+    error: '',
   };
 
   resetState() {
     this.setState({
       name: '',
       number: '',
+      error: '',
     });
   }
 
@@ -58,7 +71,9 @@ export default class ContactForm extends Component {
     }
     const result = schema.validate({ name, number });
     if (result.error) {
-      alert(result.error.message);
+      this.setState({
+        error: result.error.message,
+      });
       return false;
     }
 
@@ -69,7 +84,7 @@ export default class ContactForm extends Component {
   };
 
   render() {
-    const { name, number } = this.state;
+    const { name, number, error } = this.state;
 
     return (
       <form className="form" onSubmit={this.onSubmit}>
@@ -96,6 +111,7 @@ export default class ContactForm extends Component {
         <button className="button" type="submit">
           Add contact
         </button>
+        <ErrorMessage message={error} />
       </form>
     );
   }

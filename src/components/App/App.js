@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
 import shortid from 'shortid';
@@ -31,11 +32,9 @@ export default class App extends Component {
     let test = '';
     contacts.some(item => {
       if (item.name === name) {
-        // eslint-disable-next-line no-return-assign
         return (test = name);
       }
       if (item.number === number) {
-        // eslint-disable-next-line no-return-assign
         return (test = number);
       }
       return false;

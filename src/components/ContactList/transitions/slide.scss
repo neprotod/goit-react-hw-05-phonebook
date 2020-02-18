@@ -1,21 +1,23 @@
-.animate-enter{
-  opacity: 0;
-  transform: translateX(-100%);
-}
+.contact-list{
+  .animate-enter{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 
-.animate-enter-active{
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
-}
+  .animate-enter-active{
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  }
 
-.animate-exit{
-  opacity: 1;
-  transform: translateX(0);
-}
+  .animate-exit{
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-.animate-exit-active{
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  .animate-exit-active{
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  }
 }
