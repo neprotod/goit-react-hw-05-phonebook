@@ -1,19 +1,37 @@
 .form{
+  border:2px solid rgb(243, 242, 242);
+  padding:20px;
+  border-radius: 3px;
+
   .label{
-    font-size:20px;
+    font-size:16px;
+    padding-bottom:6px;
+    color:rgb(66, 66, 66);
   }
   label{
     display:block;
     margin-bottom:15px;
   }
+  input{
+    font-size: 16px;
+    padding:5px;
+    width:100%;
+    border-radius: 5px;
+    border:1px solid #999;
+    outline: none;
+    &:hover, &:focus{
+      border:1px solid rgb(78, 78, 78);
+    }
+  }
   .button{
     background:rgb(179, 190, 238);
     border:1px solid rgb(225, 159, 245);
-    width:150px;
+    width:100%;
     padding:10px 0;
     font-size: 1rem;
     cursor: pointer;
     color:rgb(58, 58, 58);
+    border-radius: 3px;
     &:hover{
       background:rgb(141, 160, 241);
       color:rgb(77, 77, 77);

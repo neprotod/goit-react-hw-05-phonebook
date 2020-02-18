@@ -6,8 +6,18 @@ import './Filter.scss';
 const Filter = ({ filter, onFilter }) => {
   return (
     <div className="filter">
-      <h4>Find people</h4>
-      <input type="text" value={filter} onChange={onFilter} />
+      <div className="input_block">
+        <label htmlFor="found_input">
+          <i className="fa fa-search" />
+        </label>
+        <input
+          id="found_input"
+          type="text"
+          value={filter}
+          onChange={onFilter}
+          placeHolder="Find people"
+        />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+.wrapper{
+  display:table;
+  margin:auto;
+  max-width: 350px;
+  min-width: 300px;
+  .h1{
+    font-weight: normal;
+  }
+}

@@ -1,16 +1,49 @@
 .contact-list{
-  display:table;
-  li{
-    display: table-row;
-    margin:5px;
-    > *{
-      display: table-cell;
+  padding:0;
+  margin: 0;
+  margin-top:10px;
+  .list_li{
+    display: grid;
+    grid-template-columns: 1fr minmax(1em, max-content);
+    width:100%;
+    padding:5px;
+    border:1px solid rgb(224, 224, 224);;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: rgb(247, 247, 247);
+
+    .cell{
       padding:5px;
-      margin-bottom: 10px;
     }
-    span{
-      max-width: 300px;
-      overflow: hidden;
+    .right{
+      align-self: center;
+      justify-self: center;
+    }
+
+    .name{
+      font-size: 1.2em;
+      color:rgb(71, 71, 71);
+    }
+    .number{
+      font-size: 1.0em;
+      color:rgb(139, 139, 139);
+    }
+
+    .drop{
+      background:none;
+      padding:0;
+      margin:0;
+      border:none;
+      font-size: 1.5em;
+      border:1px solid rgb(114, 114, 114);
+      color:#999;
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover{
+        background:tomato;
+        color:rgb(192, 188, 188);
+      }
     }
   }
 }

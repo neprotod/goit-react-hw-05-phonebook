@@ -6,20 +6,11 @@ import ContactForm from '../ContactForm';
 import ContactList from '../ContactList';
 import Filter from '../Filter';
 
+import './App.scss';
+
 export default class App extends Component {
   state = {
-    contacts: [
-      {
-        id: 'unit1',
-        name: 'George',
-        number: '222-555',
-      },
-      {
-        id: 'unit2',
-        name: 'Beth',
-        number: '777-888',
-      },
-    ],
+    contacts: [],
     filter: '',
   };
 
@@ -89,10 +80,12 @@ export default class App extends Component {
         .includes(filter.toLowerCase()),
     );
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <div className="wrapper">
+        <h1 className="h1">Phonebook</h1>
         <ContactForm setContacts={this.setContacts} />
-        <Filter filter={filter} onFilter={this.setFilter} />
+        {!!contacts.length && (
+          <Filter filter={filter} onFilter={this.setFilter} />
+        )}
         <ContactList items={items} onDelete={this.handlerDrop} />
       </div>
     );

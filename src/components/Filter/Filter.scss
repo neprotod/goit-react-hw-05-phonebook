@@ -1,7 +1,30 @@
 .filter{
-  margin:15px;
+  margin:0px;
+  margin-top:10px;
+  label{
+    padding:0;
+    margin:0;
+  }
   h4{
     padding:0;
     margin: 5px 0;
+  }
+  .input_block{
+    height:30px;
+    display:flex;
+    .fa{
+      width:35px;
+      height:100%;
+      background:rgb(228, 228, 253);
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+    input{
+      height:100%;
+      width:100%;
+      padding-left:10px;
+      border:1px solid rgb(228, 228, 253);
+    }
   }
 }
