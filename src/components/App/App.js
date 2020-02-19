@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
+import storage from '../../service/storage';
+
 import ContactForm from '../ContactForm';
 import ContactList from '../ContactList';
 import Filter from '../Filter';
@@ -16,7 +18,7 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
+    const contacts = storage.getContacts();
     this.setState({
       contacts,
     });
@@ -24,7 +26,7 @@ export default class App extends Component {
 
   componentDidUpdate() {
     const { contacts } = this.state;
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    storage.setContacts(contacts);
   }
 
   setContacts = (name, number) => {
@@ -42,15 +44,14 @@ export default class App extends Component {
 
     if (test) return alert(`${test} is already exist`);
 
-    const newContacts = [...contacts];
-
-    newContacts.push({
+    const newContacts = {
       id: shortid(),
       name,
       number,
-    });
+    };
+
     this.setState({
-      contacts: newContacts,
+      contacts: [...contacts, newContacts],
     });
 
     return true;
@@ -80,7 +81,7 @@ export default class App extends Component {
     );
     return (
       <div className="wrapper">
-        <h1 className="h1">Phonebook</h1>
+        <h1 className="title">Phonebook</h1>
         <ContactForm setContacts={this.setContacts} />
         {!!contacts.length && (
           <Filter filter={filter} onFilter={this.setFilter} />

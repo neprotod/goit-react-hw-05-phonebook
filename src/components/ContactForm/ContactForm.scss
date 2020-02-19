@@ -38,4 +38,11 @@
       color:rgb(77, 77, 77);
     }
   }
+  .button.disable{
+    cursor: default;
+    pointer-events: none;
+    background:rgb(196, 196, 196);
+    border:1px solid rgb(163, 163, 163);
+    color:rgb(143, 143, 143);
+  }
 }

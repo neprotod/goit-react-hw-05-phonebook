@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Joi from '@hapi/joi';
+import clsx from 'clsx';
 
 import ErrorMessage from '../ErrorMessage';
 
@@ -86,6 +87,11 @@ export default class ContactForm extends Component {
   render() {
     const { name, number, error } = this.state;
 
+    let disableButton = '';
+    if (!name || !number) {
+      disableButton = 'disable';
+    }
+
     return (
       <form className="form" onSubmit={this.onSubmit}>
         <div>
@@ -108,7 +114,7 @@ export default class ContactForm extends Component {
             />
           </label>
         </div>
-        <button className="button" type="submit">
+        <button className={clsx('button', disableButton)} type="submit">
           Add contact
         </button>
         <ErrorMessage message={error} />
